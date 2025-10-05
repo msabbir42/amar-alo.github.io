@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Organization — Welcome</title>
+  <meta name="description" content="Official website landing page for Your Organization." />
+  <meta name="theme-color" content="#0b1020" />
+  <style>
+    :root{
+      --bg:#0b1020;       /* page background */
+      --fg:#e6eefc;       /* primary text */
+      --muted:#a5b4c3;    /* secondary text */
+      --card:#111735;     /* card surface */
+      --stroke:#ffffff14; /* subtle borders */
+      --accent1:#22d3ee;  /* cyan */
+      --accent2:#22c55e;  /* green */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--fg); background:
+        radial-gradient(1000px 600px at 80% -20%, #1b2350 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg) 0%, #0a0f20 100%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    /* Canvas sits behind everything */
+    canvas#stars{position:fixed; inset:0; z-index:-1; display:block}
+
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(8px);
+      background: rgba(11,16,32,.6);
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.5px}
+    .brand .logo{width:28px; height:28px; border-radius:8px; display:grid; place-items:center;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2)); color:#001018; font-weight:900}
+    nav a{color:var(--fg); text-decoration:none; margin-left:16px; opacity:.85; font-weight:600}
+    nav a:hover{opacity:1}
+
+    .hero{padding:96px 0 64px; text-align:center}
+    h1{font-size:clamp(2rem, 3.6vw + 1rem, 3.5rem); line-height:1.1; margin:0 0 16px}
+    .lead{font-size:clamp(1rem, 1.2vw + .45rem, 1.25rem); color:var(--muted); margin:0 0 28px}
+    .cta{display:inline-block; padding:14px 22px; border-radius:999px; color:#06121a; font-weight:800; text-decoration:none;
+      background:linear-gradient(135deg, var(--accent1), var(--accent2)); box-shadow:0 10px 30px rgba(34, 211, 238, .3)}
+    .cta:focus{outline:2px solid white; outline-offset:2px}
+
+    section.features{margin: 32px 0 86px}
+    .grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:18px}
+    .card{background:rgba(255,255,255,.04); border:1px solid var(--stroke); border-radius:16px; padding:22px; box-shadow:0 18px 40px rgba(0,0,0,.24)}
+    .card h3{margin:0 0 6px; font-size:1.15rem}
+    .card p{margin:.25rem 0 0; color:var(--muted)}
+    .icon{width:28px; height:28px; opacity:.9}
+
+    footer{border-top:1px solid var(--stroke); color:#96a5b6; padding:22px 0; text-align:center}
+
+    .hint{ position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,0.06); padding:8px 12px; border-radius:999px;
+      font-size:.92rem; border:1px solid var(--stroke)}
+
+    @media (prefers-reduced-motion: reduce){
+      .cta, .card{ box-shadow:none }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Main">
+      <div class="brand" aria-label="Site logo">
+        <span class="logo" aria-hidden="true">◎</span>
+        <span>Your Organization</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <h1>Building a healthier, more connected community</h1>
+      <p class="lead">We are a non‑profit organization focused on research, education, and community impact. Together, we turn ideas into action.</p>
+      <a class="cta" href="#contact">Get in touch</a>
+    </section>
+
+    <section class="features" id="about">
+      <div class="grid">
+        <article class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Who We Are</h3>
+          <p>Researchers, practitioners, and volunteers united by a mission to serve the public good.</p>
+        </article>
+        <article class="card" id="programs">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Programs</h3>
+          <p>From community workshops to data‑driven initiatives, explore our flagship programs and partnerships.</p>
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="currentColor" stroke-width="1.6"/><path d="M4 12a8 8 0 1116 0 8 8 0 01-16 0z" stroke="currentColor" stroke-width="1.6"/></svg>
+          <h3>Impact</h3>
+          <p>We measure outcomes and share open resources to help others replicate what works.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="features" id="contact">
+      <div class="grid">
+        <article class="card" style="grid-column: 1/-1">
+          <h3>Contact</h3>
+          <p>Email us: <a href="mailto:hello@example.org" style="color:var(--fg)"><strong>hello@example.org</strong></a></p>
+          <p>Address: 123 Main Street, Your City</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Your Organization — All rights reserved.
+  </footer>
+
+  <div class="hint" id="hint" role="status">Click anywhere to make stars ✨ (Press <kbd>Space</kbd> for a burst)</div>
+
+  <noscript>
+    <div class="container" style="padding:1rem 0 2rem; color:#9fb0c4">JavaScript is disabled. You’ll still see the content, but the interactive stars are off.</div>
+  </noscript>
+
+  <script>
+  // Lightweight particle stars — subtle background + click bursts
+  (function(){
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let width, height;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resize(){
+      width = window.innerWidth; height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr); canvas.height = Math.floor(height * dpr);
+      canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    window.addEventListener('resize', resize, {passive:true});
+    resize();
+
+    const TAU = Math.PI * 2;
+    let particles = [];
+
+    function spawn(x, y, count){
+      const N = count ?? (prefersReduced ? 30 : 80);
+      for(let i=0;i<N;i++){
+        const angle = (i/N) * TAU + (Math.random()*0.5-0.25);
+        const speed = (prefersReduced? 60: 120) + Math.random()*(prefersReduced? 40 : 120);
+        particles.push({
+          x, y,
+          vx: Math.cos(angle) * (speed/100),
+          vy: Math.sin(angle) * (speed/100),
+          life: 1,
+          size: 1 + Math.random()*2,
+          hue: 200 + Math.floor(Math.random()*120)
+        });
+      }
+    }
+
+    function twinkleBackground(n){
+      for(let i=0;i<n;i++){
+        particles.push({
+          x: Math.random()*width,
+          y: Math.random()*height,
+          vx: 0, vy: 0,
+          life: 0.2 + Math.random()*0.8,
+          size: Math.random()*1.5,
+          hue: 210 + Math.random()*50,
+          twinkle: true,
+          phase: Math.random()*TAU
+        });
+      }
+    }
+    twinkleBackground(90);
+
+    function drawParticle(x, y, size, hue, alpha){
+      const g = ctx.createRadialGradient(x,y,0, x,y, size*3);
+      g.addColorStop(0, `hsla(${hue},90%,80%,${alpha})`);
+      g.addColorStop(1, `hsla(${hue},90%,50%,0)`);
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(x,y, size*3, 0, TAU);
+      ctx.fill();
+    }
+
+    let last=0;
+    function loop(t=0){
+      const dt = Math.min((t-last)/1000, 0.033); last=t;
+      ctx.clearRect(0,0,width,height);
+
+      particles = particles.filter(p => p.life > 0 && p.x>-50 && p.x<width+50 && p.y>-50 && p.y<height+50);
+      for(const p of particles){
+        if(p.twinkle){
+          p.phase += dt*1.5;
+          const alpha = 0.3 + Math.sin(p.phase)*0.2;
+          drawParticle(p.x, p.y, p.size, p.hue, alpha);
+          continue;
+        }
+        p.vy += 0.15*dt;   // gentle gravity
+        p.x  += p.vx*60*dt;
+        p.y  += p.vy*60*dt;
+        p.life -= dt * (prefersReduced ? 0.6 : 0.9);
+        drawParticle(p.x, p.y, p.size, p.hue, Math.max(p.life,0));
+      }
+      requestAnimationFrame(loop);
+    }
+
+    // Interactions
+    canvas.addEventListener('pointerdown', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      spawn(e.clientX - rect.left, e.clientY - rect.top);
+      const hint = document.getElementById('hint'); if(hint) hint.remove();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === ' ' || e.key.toLowerCase() === 's'){
+        spawn(Math.random()*width, Math.random()*height);
+        const hint = document.getElementById('hint'); if(hint) hint.remove();
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    requestAnimationFrame(loop);
+  })();
+  </script>
+</body>
+</html>
